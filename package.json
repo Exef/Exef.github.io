@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "gatsby-starter-blog-amp-to-pwa",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A starter for a blog(AMP and PWA) powered by Gatsby and Markdown",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Tomoyuki Kashiro <ksrtmyk@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/tomoyukikashiro/gatsby-starter-blog-amp-to-pwa/issues"
   },
   "dependencies": {
     "gatsby": "^2.13.23",
@@ -31,22 +31,26 @@
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",
+    "gatsby-plugin-html2amp": "^0.4.0",
     "typeface-montserrat": "0.0.54",
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "amphtml-validator": "^1.0.23"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/tomoyukikashiro/gatsby-starter-blog-amp-to-pwa#readme",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "amp",
+    "pwa"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/tomoyukikashiro/gatsby-starter-blog-amp-to-pwa.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -54,6 +58,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "amp": "find public/amp -type f | xargs amphtml-validator",
+    "test": "npm run amp"
   }
 }

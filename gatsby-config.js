@@ -6,23 +6,23 @@ module.exports = {
     siteUrl: `https://malachowi.cz/`,
     social: {
       twitter: `fmalachowic`,
-      github: `Exef`
-    }
+      github: `Exef`,
+    },
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`
-      }
+        name: `blog`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`
-      }
+        name: `assets`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -31,20 +31,23 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
-            }
+              maxWidth: 590,
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
-            }
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: { classPrefix: "language-" },
+          },
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`
-        ]
-      }
+          `gatsby-remark-smartypants`,
+        ],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -52,7 +55,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -68,9 +71,9 @@ module.exports = {
                     site.siteMetadata.siteUrl + "posts" + edge.node.fields.slug,
                   guid:
                     site.siteMetadata.siteUrl + "posts" + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
-                });
-              });
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
             },
             query: `
             {
@@ -93,10 +96,10 @@ module.exports = {
             }
           `,
             output: "/rss.xml",
-            title: "Gatsby RSS Feed"
-          }
-        ]
-      }
+            title: "Gatsby RSS Feed",
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -107,8 +110,8 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`
-      }
+        icon: `content/assets/gatsby-icon.png`,
+      },
     },
     {
       resolve: "gatsby-plugin-html2amp",
@@ -120,17 +123,17 @@ module.exports = {
           src: "https://malachowi.cz/sw.js",
           "data-iframe-src":
             "https://www.malachowi.cz/amp-install-serviceworker.html",
-          layout: "nodisplay"
-        }
-      }
+          layout: "nodisplay",
+        },
+      },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`
-      }
-    }
-  ]
-};
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+  ],
+}
